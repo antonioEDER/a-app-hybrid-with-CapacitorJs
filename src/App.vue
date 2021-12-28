@@ -2,12 +2,11 @@
   <div>
     <p>
       <button @click="takePicture()">Fotografar</button>
-      <img :src="src" alt="" height="350px" />
     </p>
-
-    <p>
-      <button @click="showHelloToast()">Abrir alerta</button>
-    </p>
+    <div>
+      <img v-if="src" :src="src" alt="" height="350" />
+      <img v-else src="./assets/def.png" alt="" height="350" />
+    </div>
   </div>
 </template>
 
@@ -30,6 +29,8 @@ export default {
         resultType: CameraResultType.Uri,
       });
 
+      this.showToast("Fotografado com sucesso!")
+
       // image.webPath will contain a path that can be set as an image src.
       // You can access the original file using image.path, which can be
       // passed to the Filesystem API to read the raw data of the image,
@@ -39,9 +40,9 @@ export default {
       // Can be set to the src of an image now
       this.src = imageUrl;
     },
-    async showHelloToast() {
+    async showToast(text) {
       await Toast.show({
-        text: "Olá!",
+        text: text,
       });
     },
   },

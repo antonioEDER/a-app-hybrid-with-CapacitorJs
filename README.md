@@ -42,9 +42,9 @@ yarn cap open [android|Ios]
 yarn @capacitor/cli plugin:generate
 ```
 
-### Sync plugins
+### Run APP Android
 ```
-yarn cap sync
+yarn android
 
 ```
 
