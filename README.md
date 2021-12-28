@@ -7,6 +7,7 @@ Nele vamos explorar os plugins de:
 - Android
 - Câmera
 - Toast
+- Vibration
 ```
 
 

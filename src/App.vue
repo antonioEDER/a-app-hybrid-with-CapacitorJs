@@ -14,6 +14,9 @@
 import { Camera, CameraResultType } from "@capacitor/camera";
 import { Toast } from "@capacitor/toast";
 
+import { Haptics } from '@capacitor/haptics';
+
+
 export default {
   name: "App",
   data() {
@@ -22,14 +25,17 @@ export default {
     };
   },
   methods: {
+    async hapticsVibrate() {
+      await Haptics.vibrate();
+    },
     async takePicture() {
       const image = await Camera.getPhoto({
         quality: 90,
         allowEditing: true,
         resultType: CameraResultType.Uri,
       });
-
-      this.showToast("Fotografado com sucesso!")
+      this.hapticsVibrate();
+      this.showToast("Fotografado com sucesso!");
 
       // image.webPath will contain a path that can be set as an image src.
       // You can access the original file using image.path, which can be
