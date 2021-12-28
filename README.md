@@ -1,4 +1,13 @@
-# app
+# app hibrido com CapacitorJs
+
+```
+Esse é um projeto desenvolvido com CapacitorJs e VueJs.
+
+Nele vamos explorar os plugins de:
+- Android
+- Câmera
+- Toast
+```
 
 
 ## Create Project
@@ -45,7 +54,6 @@ yarn @capacitor/cli plugin:generate
 ### Run APP Android
 ```
 yarn android
-
 ```
 
 
