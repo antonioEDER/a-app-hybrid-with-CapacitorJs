@@ -1,0 +1,16 @@
+{
+  "appId": "app.teste.com",
+  "appName": "app",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "linuxAndroidStudioPath": "/snap/android-studio/current/android-studio/bin/studio.sh",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {
+
+  }
+}
