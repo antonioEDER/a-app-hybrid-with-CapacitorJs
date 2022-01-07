@@ -23,7 +23,7 @@
         Algo deu errado: {{ erro }}
       </div>
     </div>
-    <div>Versão 1.0.1</div>
+    <div>Versão 1.0.2</div>
   </div>
 </template>
 
