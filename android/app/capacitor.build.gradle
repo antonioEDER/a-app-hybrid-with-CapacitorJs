@@ -15,7 +15,7 @@ dependencies {
     implementation project(':reslear-capacitor-google-auth')
 
 }
-
+apply from: "../../node_modules/cordova-plugin-ionic/src/android/cordovapluginionic.gradle"
 
 if (hasProperty('postBuildExtras')) {
   postBuildExtras()

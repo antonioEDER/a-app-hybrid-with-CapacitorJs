@@ -42,3 +42,17 @@ front-end-eucatur-v4/src-capacitor/android/app/src/main/java/br/com/eucatur/Main
 
 keytool -genkey -v -keystore app-capacitor-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
 senha 99886962eder
+
+-----
+https://ionic.io/docs/appflow
+$ npm install -g @ionic/cli
+https://dashboard.ionicframework.com/personal/apps
+
+ionic init
+
+ionic deploy add \
+--app-id="613b241f" \
+--channel-name="Production" \
+--update-method="background"
+
+git commit -m "added appflow sdk"
