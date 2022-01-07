@@ -1,16 +1,30 @@
 {
-  "appId": "app.teste.com",
-  "appName": "app",
+  "appId": "app.auth.google.capacitor",
+  "appName": "app-with-capacitor",
   "webDir": "dist",
   "bundledWebRuntime": false,
   "npmClient": "yarn",
   "linuxAndroidStudioPath": "/snap/android-studio/current/android-studio/bin/studio.sh",
+  "server": {
+    "cleartext": true,
+    "hostname": "app.auth.google.capacitor",
+    "allowNavigation": ["*"]
+  },
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0
+    },
+    "GoogleAuth": {
+      "scopes": [
+        "profile",
+        "email",
+        "https://www.googleapis.com/auth/calendar.events",
+        "https://www.googleapis.com/auth/contacts.readonly"
+      ],
+      "serverClientId": "892672575305-fles2fspmcfrirakngd4c3qobca2hth2.apps.googleusercontent.com",
+      "clientId": "892672575305-fles2fspmcfrirakngd4c3qobca2hth2.apps.googleusercontent.com",
+      "forceCodeForRefreshToken": true
     }
   },
-  "cordova": {
-
-  }
+  "cordova": {}
 }

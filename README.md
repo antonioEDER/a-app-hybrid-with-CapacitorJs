@@ -8,6 +8,8 @@ Nele vamos explorar os plugins de:
 - Câmera
 - Toast
 - Vibration
+- Login with Google
+- Splash Screens and Icons
 ```
 
 
@@ -26,25 +28,14 @@ yarn install
 yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
 ### Add platform [Android|Ios]
 ```
-yarn cap add [android|Ios]
+npx cap add [android|Ios]
 ```
-
 
 ### Open platform [Android|Ios]
 ```
-yarn cap open [android|Ios]
+npx cap open [android|Ios]
 ```
 
 ### Generation plugins
@@ -57,6 +48,24 @@ yarn @capacitor/cli plugin:generate
 yarn android
 ```
 
+### Generator icons and Splash for Android
+```
+yarn global add cordova-res
+cordova-res
+cordova-res android --skip-config --copy
+```
+
+### Configuration for Android with capacitojs
+```
+- /android/app/src/main/res/values/strings.xml
+    - <string name="server_client_id">id.apps.googleusercontent.com</string>
+- index.html
+    - <meta name="google-signin-client_id" content="id.apps.googleusercontent.com">
+- android/app/src/main/java/br/com/eucatur/MainActivity.java
+    - import com.codetrixstudio.capacitor.GoogleAuth.GoogleAuth;
+    - this.init { add(GoogleAuth.class); }
+    
+```
 
 ### Customize configuration
 See [Configuration Reference](https://capacitorjs.com/).

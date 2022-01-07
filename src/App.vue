@@ -7,24 +7,70 @@
       <img v-if="src" :src="src" alt="" height="350" />
       <img v-else src="./assets/def.png" alt="" height="350" />
     </div>
+    <br>
+    <div>
+      <button expand="block" @click="logIn()">
+        <img class="google" :src="require('@/assets/google.svg')" />
+        <span>Login with Google</span>
+      </button>
+      <div v-if="user">
+        Seus dados: {{ user }}
+      </div>
+      <div v-else>
+        <p>Você não está logado</p>
+      </div>
+      <div v-if="erro">
+        Algo deu errado: {{ erro }}
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { defineComponent } from "vue";
+
 import { Camera, CameraResultType } from "@capacitor/camera";
 import { Toast } from "@capacitor/toast";
+import { Haptics } from "@capacitor/haptics";
 
-import { Haptics } from '@capacitor/haptics';
+import { GoogleAuth } from "@reslear/capacitor-google-auth";
 
-
-export default {
+export default defineComponent({
   name: "App",
   data() {
     return {
       src: "",
+      user: '',
+      erro: ''
     };
   },
+  mounted() {
+    GoogleAuth.initialize({
+        clientId:
+          "892672575305-fles2fspmcfrirakngd4c3qobca2hth2.apps.googleusercontent.com",
+        grantOfflineAccess: true,
+        scopes: [
+        "profile",
+        "email",
+        "https://www.googleapis.com/auth/calendar.events",
+        "https://www.googleapis.com/auth/contacts.readonly"
+      ],
+      });
+  },
   methods: {
+    async logIn (){
+      try {
+        const response = await GoogleAuth.signIn();
+        if (response.id) {
+          this.user = response
+          this.src = response.imageUrl
+          this.hapticsVibrate()
+        }
+      } catch (e) {
+        this.erro = e
+        console.log("erro == ", e);
+      }
+    },
     async hapticsVibrate() {
       await Haptics.vibrate();
     },
@@ -52,7 +98,7 @@ export default {
       });
     },
   },
-};
+});
 </script>
 
 <style>

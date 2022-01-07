@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">app</string>
     <string name="title_activity_main">app</string>
-    <string name="package_name">app.teste.com</string>
-    <string name="custom_url_scheme">app.teste.com</string>
+    <string name="package_name">app.auth.google.capacitor</string>
+    <string name="custom_url_scheme">app.auth.google.capacitor</string>
+    <string name="server_client_id">892672575305-fles2fspmcfrirakngd4c3qobca2hth2.apps.googleusercontent.com</string>
 </resources>
